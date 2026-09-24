@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+language: "en-US"
+
+early_access: false
+
+reviews:
+  profile: "assertive"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    auto_pause_after_reviewed_commits: 5
+    ignore_title_keywords:
+      - "WIP"
+      - "[skip review]"
+      - "DO NOT MERGE"
+    ignore_usernames:
+      - "dependabot[bot]"
+      - "renovate[bot]"
+      - "github-actions[bot]"
+  path_instructions:
+    - path: "src/**/*.{js,jsx,ts,tsx}"
+      instructions: "Enforce WordPress Gutenberg Block API v3 standards. Verify useBlockProps() on edit component root. Use @wordpress/components and @wordpress/block-editor. Ensure all translatable strings use __() from @wordpress/i18n with proper text domain."
+    - path: "**/block.json"
+      instructions: "Validate block.json schema version 3 ($schema). Ensure all block attributes declare explicit types. Verify script and style asset paths."
+    - path: "**/*.php"
+      instructions: "Enforce WordPress Coding Standards (WPCS) and PHPDoc rules. In render callbacks/render.php, verify attribute sanitization and escaping (esc_html, esc_attr, wp_kses_post). Ensure REST API endpoints define permission_callback."
+
+knowledge_base:
+  opt_out: false
+  web_search:
+    enabled: true
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - "lightspeedwp/coderabbit:guidelines/block-plugin.md"
+      - "lightspeedwp/coderabbit:guidelines/block-theme.md"
+
+finishing_touches:
+  autofix:
+    enabled: true
+  fix_ci:
+    enabled: true
+  resolve_merge_conflict:
+    enabled: true
+  unit_tests:
+    enabled: true
+  simplify:
+    enabled: true
+  docstrings:
+    enabled: true
