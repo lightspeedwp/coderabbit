@@ -46,6 +46,19 @@ reviews:
       enabled: true
     trufflehog:
       enabled: true
+  finishing_touches:
+    autofix:
+      enabled: true
+    fix_ci:
+      enabled: true
+    resolve_merge_conflict:
+      enabled: true
+    unit_tests:
+      enabled: true
+    simplify:
+      enabled: true
+    docstrings:
+      enabled: true
 
 knowledge_base:
   opt_out: false
@@ -57,17 +70,3 @@ knowledge_base:
     filePatterns:
       - "lightspeedwp/coderabbit:guidelines/block-plugin.md"
       - "lightspeedwp/coderabbit:guidelines/block-theme.md"
-
-finishing_touches:
-  autofix:
-    enabled: true
-  fix_ci:
-    enabled: true
-  resolve_merge_conflict:
-    enabled: true
-  unit_tests:
-    enabled: true
-  simplify:
-    enabled: true
-  docstrings:
-    enabled: true
