@@ -31,7 +31,7 @@ Single file: `.coderabbit.yaml` at the root of `lightspeedwp/coderabbit`. No `sr
 
 **Purpose**: Confirm the branch is in a known-good state before editing the shared config file.
 
-- [ ] T001 Confirm the current branch (`feature/git-2492-automation-coderabbit-complete-the-central-review`) is up to date with `origin/develop` and the working tree is clean, in `lightspeedwp/coderabbit`
+- [X] T001 Confirm the current branch (`feature/git-2492-automation-coderabbit-complete-the-central-review`) is up to date with `origin/develop` and the working tree is clean, in `lightspeedwp/coderabbit`
 
 ---
 
@@ -41,7 +41,7 @@ Single file: `.coderabbit.yaml` at the root of `lightspeedwp/coderabbit`. No `sr
 
 **⚠️ CRITICAL**: No user story task can begin until this phase is complete.
 
-- [ ] T002 Read the current `.coderabbit.yaml` in `lightspeedwp/coderabbit` and confirm the exact insertion points for a new `reviews.tools` block, the existing `reviews.auto_review` block, and a new `knowledge_base.automatic_linking_mode` field, per [data-model.md](./data-model.md)
+- [X] T002 Read the current `.coderabbit.yaml` in `lightspeedwp/coderabbit` and confirm the exact insertion points for a new `reviews.tools` block, the existing `reviews.auto_review` block, and a new `knowledge_base.automatic_linking_mode` field, per [data-model.md](./data-model.md)
 
 **Checkpoint**: File structure confirmed — user story edits can now proceed.
 
@@ -55,7 +55,7 @@ Single file: `.coderabbit.yaml` at the root of `lightspeedwp/coderabbit`. No `sr
 
 ### Implementation for User Story 1
 
-- [ ] T003 [US1] Add a `reviews.tools` block to `lightspeedwp/coderabbit/.coderabbit.yaml` with `phpcs.enabled: false`, `phpstan.enabled: false`, `phpmd.enabled: false`, `gitleaks.enabled: true`, `trufflehog.enabled: true`, exactly as specified in [data-model.md](./data-model.md)
+- [X] T003 [US1] Add a `reviews.tools` block to `lightspeedwp/coderabbit/.coderabbit.yaml` with `phpcs.enabled: false`, `phpstan.enabled: false`, `phpmd.enabled: false`, `gitleaks.enabled: true`, `trufflehog.enabled: true`, exactly as specified in [data-model.md](./data-model.md)
 
 **Checkpoint**: `reviews.tools` block is in place.
 
@@ -69,8 +69,8 @@ Single file: `.coderabbit.yaml` at the root of `lightspeedwp/coderabbit`. No `sr
 
 ### Implementation for User Story 2
 
-- [ ] T004 [US2] Add `main`, `develop`, `feature/.*`, `fix/.*` to `reviews.auto_review.base_branches` in `lightspeedwp/coderabbit/.coderabbit.yaml`, using regex syntax (not glob) per [research.md](./research.md)
-- [ ] T005 [US2] Add `knowledge_base.automatic_linking_mode: auto` to `lightspeedwp/coderabbit/.coderabbit.yaml`, per [data-model.md](./data-model.md)
+- [X] T004 [US2] Add `main`, `develop`, `feature/.*`, `fix/.*` to `reviews.auto_review.base_branches` in `lightspeedwp/coderabbit/.coderabbit.yaml`, using regex syntax (not glob) per [research.md](./research.md)
+- [X] T005 [US2] Add `knowledge_base.automatic_linking_mode: auto` to `lightspeedwp/coderabbit/.coderabbit.yaml`, per [data-model.md](./data-model.md)
 
 **Checkpoint**: All four config additions (T003–T005) are now in place. Feature complete — the file is ready for the repository owner to commit, open a PR, and verify manually, entirely outside this task list.
 
