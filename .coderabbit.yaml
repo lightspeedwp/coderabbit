@@ -4,6 +4,23 @@ language: "en-US"
 
 early_access: false
 
+# Configuration inheritance
+# This central configuration is designed to be inherited by repositories
+# that do not have their own .coderabbit.yml or .coderabbit.yaml file.
+#
+# To enable inheritance in a child repository, create a .coderabbit.yml with:
+#   inheritance: true
+#   [any local overrides]
+#
+# Repositories can override any setting, including:
+# - language (e.g., en-GB)
+# - reviews.profile (e.g., chill, balanced)
+# - path_instructions (add repository-specific guidance)
+# - tools (enable/disable specific checks)
+#
+# For more information, see:
+# https://docs.coderabbit.ai/configuration/configuration-inheritance
+
 reviews:
   profile: "assertive"
   request_changes_workflow: false
@@ -29,12 +46,14 @@ reviews:
       - "renovate[bot]"
       - "github-actions[bot]"
   path_instructions:
-    - path: "src/**/*.{js,jsx,ts,tsx}"
-      instructions: "Enforce WordPress Gutenberg Block API v3 standards. Verify useBlockProps() on edit component root. Use @wordpress/components and @wordpress/block-editor. Ensure all translatable strings use __() from @wordpress/i18n with proper text domain."
-    - path: "**/block.json"
-      instructions: "Validate block.json schema version 3 ($schema). Ensure all block attributes declare explicit types. Verify script and style asset paths."
+    - path: "guidelines/**/*.md"
+      instructions: "Review documentation for clarity, completeness and alignment with the codebase. Check for broken links, correct code examples and current references."
     - path: "**/*.php"
       instructions: "Enforce WordPress Coding Standards (WPCS) and PHPDoc rules. In render callbacks/render.php, verify attribute sanitization and escaping (esc_html, esc_attr, wp_kses_post). Ensure REST API endpoints define permission_callback."
+    - path: "**/block.json"
+      instructions: "Validate block.json schema version 3 ($schema). Ensure all block attributes declare explicit types. Verify script and style asset paths."
+    - path: "src/**/*.{js,jsx,ts,tsx}"
+      instructions: "For WordPress Gutenberg projects (containing @wordpress dependencies or block.json): Enforce Block API v3, verify useBlockProps() on edit component root, use @wordpress/components, ensure translatable strings use __() from @wordpress/i18n with proper text domain. For standalone JavaScript/React projects: Follow the project's own guidelines and framework conventions."
   tools:
     phpcs:
       enabled: false
