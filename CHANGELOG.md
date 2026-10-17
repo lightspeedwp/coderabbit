@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased] — CodeRabbit inheritance and cross-repository configuration (CR-18)
+
+### Added
+
+- `.coderabbit.yaml`: Added configuration inheritance documentation and guidance for child repositories to enable centralized settings while retaining local overrides
+- `.coderabbit.yaml`: Added path instruction for guidelines files to review documentation quality and alignment
+
+### Changed
+
+- `.coderabbit.yaml`: Conditional JavaScript path instructions — now detect WordPress dependencies and apply WordPress-specific Gutenberg/Block API requirements only for WordPress projects, allowing standalone JavaScript/React projects to follow their own framework conventions without WordPress-specific constraints
+- Path instruction ordering: Reorganized to improve clarity and precedence (guidelines → PHP → block.json → JavaScript)
+
+### Security
+
+- Reduced unnecessary tool overhead for non-WordPress projects by only applying WordPress-specific linting rules where PHP and WordPress dependencies are actually present
+
+---
+
 ## [Unreleased] — Complete central review configuration: tools, base_branches, linking (GIT-2492)
 
 ### Added
